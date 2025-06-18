@@ -1,0 +1,10 @@
+{% extends "_base.html" %}
+
+{% block title %}{{ game.title }}{% endblock title %}
+
+{% block content %}
+<div class="game-detail">
+    <h2><a href="">{{ game.title }}</a></h2>
+    <p>Description: {{ game.description }}</p>
+</div>
+{% endblock content %}
