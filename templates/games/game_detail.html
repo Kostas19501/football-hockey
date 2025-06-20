@@ -5,6 +5,9 @@
 {% block content %}
 <div class="game-detail">
     <h2><a href="">{{ game.title }}</a></h2>
+    <img width="720" height="405" class="gameimage" src="{{ game.image.url}}" alt="{{ game.title }}">
     <p>Description: {{ game.description }}</p>
+    <iframe width="720" height="405" src="{{ game.video }}" frameBorder="0" allow="clipboard-write; autoplay"
+        webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 </div>
 {% endblock content %}

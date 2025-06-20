@@ -11,20 +11,25 @@ class GameTests(TestCase):
     def setUpTestData(cls):
         """A function for setting test data"""
         cls.game = Game.objects.create(
-            title="Ajax-Real M",
-            description="Лига Чемпионов 2018-2019 1 8 финала Первый матч.",
-            video="https://www.youtube.com/watch?v=kCgrQBtsRG4",
-            image="i.jpeg",
+            title="ДИНАМО МОСКВА – ТОРПЕДО",
+            description="| Обзор матча Фонбет КХЛ сезон 2024/2025 | 30.01.2025",
+            video="https://rutube.ru/play/embed/bcd058bb9b46c4a9e79e8a9c8158f7da",
+            image="fghh.jpeg",
         )
 
     def test_game_listing(self):
         """Checks that both its string
         representation and content are correct."""
-        self.assertEqual(f"{self.game.title}", "Ajax-Real M")
+        self.assertEqual(f"{self.game.title}", "ДИНАМО МОСКВА – ТОРПЕДО")
         self.assertEqual(
             f"{self.game.description}",
-            "Лига Чемпионов 2018-2019 1 8 финала Первый матч.",
+            "| Обзор матча Фонбет КХЛ сезон 2024/2025 | 30.01.2025",
         )
+        self.assertEqual(
+            f"{self.game.video}",
+            "https://rutube.ru/play/embed/bcd058bb9b46c4a9e79e8a9c8158f7da",
+        )
+        self.assertEqual(f"{self.game.image}", "fghh.jpeg")
 
     def test_game_list_view(self):
         """
@@ -35,7 +40,8 @@ class GameTests(TestCase):
         """
         response = self.client.get(reverse("game_list"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Ajax-Real M")
+        self.assertContains(response, "ДИНАМО МОСКВА – ТОРПЕДО")
+        self.assertContains(response, "fghh.jpeg")
         self.assertTemplateUsed(response, "games/game_list.html")
 
     def test_game_detail_view(self):
@@ -44,5 +50,12 @@ class GameTests(TestCase):
         no_response = self.client.get("games/MU-Bayer/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
-        self.assertContains(response, "Ajax-Real M")
+        self.assertContains(response, "ДИНАМО МОСКВА – ТОРПЕДО")
+        self.assertContains(response, "fghh.jpeg")
+        self.assertContains(
+            response, "| Обзор матча Фонбет КХЛ сезон 2024/2025 | 30.01.2025"
+        )
+        self.assertContains(
+            response, "https://rutube.ru/play/embed/bcd058bb9b46c4a9e79e8a9c8158f7da"
+        )
         self.assertTemplateUsed(response, "games/game_detail.html")

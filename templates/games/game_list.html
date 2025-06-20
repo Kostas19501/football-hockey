@@ -5,6 +5,7 @@
 {% block content %}
 {% for game in game_list %}
 <div>
+    <img width="720" height="405" class="gameimage" src="{{ game.image.url}}" alt="{{ game.title }}">
     <h2><a href="{{ game.get_absolute_url }}">{{ game.title }}</a></h2>
 </div>
 {% endfor %}
