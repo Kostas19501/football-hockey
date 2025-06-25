@@ -3,10 +3,16 @@
 {% block title %}Games{% endblock title %}
 
 {% block content %}
-{% for game in game_list %}
-<div>
-    <img width="720" height="405" class="gameimage" src="{{ game.image.url}}" alt="{{ game.title }}">
-    <h2><a href="{{ game.get_absolute_url }}">{{ game.title }}</a></h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for game in game_list %}
+    <div class="col">
+        <div class="card h-100">
+            <img width="320" height="162" src="{{ game.image.url}}" class="card-img-top" alt="{{ game.title }}">
+            <div class="card-body">
+                <h2><a href="{{ game.get_absolute_url }}">{{ game.title }}</a></h2>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock content %}
