@@ -1,4 +1,5 @@
 {% extends "_base.html" %}
+{% load static %}
 
 {% block title %}{{ game.title }}{% endblock title %}
 
@@ -7,7 +8,10 @@
     <h2><a href="">{{ game.title }}</a></h2>
     <img width="520" height="305" class="img-fluid" src="{{ game.image.url}}" alt="{{ game.title }}">
     <p>Описание: {{ game.description }}</p>
-    <iframe width="720" height="405" src="{{ game.video }}" frameBorder="0" allow="clipboard-write; autoplay"
-        webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    <a id="two" href="{{ game.video }}"></a>
+    <br />
+    <img id="one" class="img-fluid" src="{% static 'images/tabby.jpeg' %}" width="720" height="400">
 </div>
+<!-- JavaScript -->
+<script src="{% static 'js/base.js' %}"></script>
 {% endblock content %}

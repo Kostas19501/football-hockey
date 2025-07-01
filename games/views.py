@@ -9,6 +9,7 @@ class GameListView(ListView):
     model = Game
     context_object_name = "game_list"
     template_name = "games/game_list.html"
+    ordering = ["-published_at"]
 
 
 class GameDetailView(DetailView):
