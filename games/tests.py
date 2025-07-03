@@ -1,3 +1,5 @@
+import datetime
+
 from django.test import TestCase
 from django.urls import reverse
 
@@ -35,6 +37,7 @@ class GameTests(TestCase):
         """
         Confirms that our main page returns the
         HTTP 200 status code, contains our text,
+        displays creation date,
         and uses the correct one. games/game_list.html
         the template.
         """
@@ -42,6 +45,7 @@ class GameTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "ДИНАМО МОСКВА – ТОРПЕДО")
         self.assertContains(response, "fghh.jpeg")
+        self.assertContains(response, f'{datetime.date.today().strftime("%Y-%m-%d")}')
         self.assertTemplateUsed(response, "games/game_list.html")
 
     def test_game_detail_view(self):

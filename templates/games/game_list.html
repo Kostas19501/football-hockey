@@ -3,13 +3,14 @@
 {% block title %}Games{% endblock title %}
 
 {% block content %}
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class=" row row-cols-1 row-cols-md-3 g-4">
     {% for game in game_list %}
     <div class="col">
         <div class="card h-100">
             <img width="320" height="162" src="{{ game.image.url}}" class="card-img-top" alt="{{ game.title }}">
             <div class="card-body">
                 <h2><a href="{{ game.get_absolute_url }}">{{ game.title }}</a></h2>
+                <h4>{{ game.published_at|date:"Y-m-d" }}</h4>
             </div>
         </div>
     </div>
