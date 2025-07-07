@@ -21,7 +21,7 @@ from django.urls import path, include
 
 urlpatterns = [
     # Django admin
-    path("admin/", admin.site.urls),
+    path("anything-but-admin/", admin.site.urls),
     # Local app
     path("", include("games.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

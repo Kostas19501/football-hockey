@@ -6,19 +6,23 @@ services:
       - ./app/:/usr/src/app/
     ports:
       - 8000:8000
-    # Файл содержащий переменные для контейнера
-    env_file:
-      - ./.env
     depends_on:
       - db
+    environment:
+      - "DJANGO_SECRET_KEY=django-insecure-#dq1inp^mqcqu95kj7qq!cm3h948j)agy^l4!(80j)1ws1&wkz"
+      - "DJANGO_DEBUG=True"
+      - "DJANGO_SECURE_SSL_REDIRECT=False" 
+      - "DJANGO_SECURE_HSTS_SECONDS=0"
+      - "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False"
+      - "DJANGO_SECURE_HSTS_PRELOAD=False"
+      - "DJANGO_SESSION_COOKIE_SECURE=False"
+      - "DJANGO_CSRF_COOKIE_SECURE=False"
   db:
     image: postgres:13
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
 
 volumes:
   postgres_data:
