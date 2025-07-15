@@ -10,7 +10,7 @@
             <img width="320" height="162" src="{{ game.image.url}}" class="card-img-top" alt="{{ game.title }}">
             <div class="card-body">
                 <h2><a href="{{ game.get_absolute_url }}">{{ game.title }}</a></h2>
-                <h4>{{ game.published_at|date:"Y-m-d" }}</h4>
+                <h4>{{ game.data|date:"d.m.Y" }}</h4>
             </div>
         </div>
     </div>

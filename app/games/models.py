@@ -7,6 +7,8 @@ class Game(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=255)
     description = models.TextField()
+    data = models.DateField()
+    place = models.CharField(max_length=255)
     video = models.URLField(max_length=200)
     image = models.ImageField(upload_to="images/", null=True, blank=True)
     published_at = models.DateTimeField(auto_now_add=True)

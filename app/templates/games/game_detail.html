@@ -4,14 +4,28 @@
 {% block title %}{{ game.title }}{% endblock title %}
 
 {% block content %}
-<div class="game-detail">
-    <h2><a href="">{{ game.title }}</a></h2>
-    <img width="520" height="305" class="img-fluid" src="{{ game.image.url}}" alt="{{ game.title }}">
-    <p>Описание: {{ game.description }}</p>
-    <a id="two" href="{{ game.video }}"></a>
-    <br />
-    <img id="one" class="img-fluid" src="{% static 'images/tabby.jpeg' %}" width="720" height="400">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 p-4">
+            <div class="text-center">
+                <div class="game-detail">
+                    <h2><a href="">{{ game.title }}</a></h2>
+                    <img width="520" height="305" class="img-fluid" src="{{ game.image.url}}" alt="{{ game.title }}">
+                    <h5>Турнир: {{ game.description }}</h5>
+                    <h5>Дата: {{ game.data|date:"d M Y" }}</h5>
+                    <h5>Стадион: {{ game.place }}</h5>
+                    <a id="two" href="{{ game.video }}"></a>
+                    <br />
+                    <img id="one" class="img-fluid" src="{% static 'images/tabby.jpeg' %}" width="720" height="400">
+                </div>
+                <!-- JavaScript -->
+                <script src="{% static 'js/base.js' %}"></script>
+            </div>
+        </div>
+        <div class="col-4 p-4">
+            <div class="card mb-4">
+            </div>
+        </div>
+    </div>
 </div>
-<!-- JavaScript -->
-<script src="{% static 'js/base.js' %}"></script>
 {% endblock content %}
