@@ -1,17 +1,17 @@
-О проекте:
+About the project:
 
-- проект создан для размещения обзоров спортивных состязаний; 
-- для разработки использовался фреймворк джанго;
-- для визуального оформления CSS-фреймворк bootstrap; 
-- размещение видео(ссылки) и другой информации о состязании происходит через административную панель;
-- в качестве среды выполнения проекта использовалась технология контейниризации Docker.
+- the project was created to host reviews of sports competitions;
+- the django framework was used for development;
+- the bootstrap CSS framework was used for visual design;
+- the video (link) and other information about the competition is posted through the administrative panel;
+- the Docker containerization technology was used as the project execution environment.
 
-Запуск проекта:
+Project launch:
 
-- перед локальным запуском приложения следует переключить настройку SECURE_SSL_REDIRECT с
-default=True на default=False;
-- по соображениям безопасности в корне проекта отсутствует файл docker-compose.prod.yml
+- before local launch of the application, you should switch the SECURE_SSL_REDIRECT setting from
+default=True to default=False;
+- for security reasons, the docker-compose.prod.yml file is missing in the project root
 
-Ссылка на работающий проект:
+Link to the working project:
 
 - https://football-hockey.site/
