@@ -9,7 +9,7 @@ About the project:
 Project launch:
 
 - before local launch of the application, you should switch the SECURE_SSL_REDIRECT setting from
-default=True to default=False;
+default=True to default=False in the app/django_project/settings.py file;
 - for security reasons, the docker-compose.prod.yml file is missing in the project root
 
 Link to the working project:
