@@ -10,3 +10,8 @@
 
 - перед локальным запуском приложения следует переключить настройку SECURE_SSL_REDIRECT с
 default=True на default=False;
+- по соображениям безопасности в корне проекта отсутствует файл docker-compose.prod.yml
+
+Ссылка на работающий проект:
+
+- https://football-hockey.site/
